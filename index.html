@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Squirro Address Book</title>
+</head>
+<body>
+<nav class="navbar navbar-light navbar-expand-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="img/squirro_logo.svg"/></a>
+  </div>
+</nav>
+<div class="container addressBook">
+  <div class="row justify-content-center">
+    <div>
+      <h1 class="col-12">Address Book</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div>
+      <p class="col-12">( Max 10 Entries )</p>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone Number</th>
+      <th>Actions</th>
+    </tr>
+    <tr class="address-input-row">
+      <td>
+        <input type="text" placeholder="Name" class="form-control name-input">
+      </td>
+      <td>
+        <input type="text" placeholder="Address" class="form-control address-input">
+      </td>
+      <td>
+        <input type="tel" placeholder="+41 00 000 00 00"
+               class="form-control phoneNumber-input"
+               pattern="(\+41)\s(\d{2})\s(\d{3})\s(\d{2})\s(\d{2})">
+        <div class="phoneNumberError">Invalid Swiss Phone Number</div>
+      </td>
+      <td>
+        <button class="btn btn-primary add-address">Add</button>
+      </td>
+    </tr>
+    </thead>
+    <tbody class="addresses-list"></tbody>
+  </table>
+</div>
+<script type="text/template" class="addresses-list-template">
+  <td><span class="name"></span><%= name %></td>
+  <td><span class="address"></span><%= address %></td>
+  <td><span class="phoneNumber"></span><%= phoneNumber %></td>
+  <td>
+    <button class="btn btn-danger delete-address">Delete</button>
+  </td>
+</script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/underscore/underscore.js"></script>
+<script src="node_modules/backbone/backbone.js"></script>
+<script src="node_modules/sinon/pkg/sinon.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

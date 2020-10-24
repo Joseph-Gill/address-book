@@ -1,0 +1,22 @@
+{
+  "name": "address-book",
+  "version": "1.0.0",
+  "description": "squirro address book",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "author": "Joseph Gill",
+  "license": "ISC",
+  "dependencies": {
+    "backbone": "^1.4.0",
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1",
+    "sinon": "^9.2.0",
+    "underscore": "^1.11.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}

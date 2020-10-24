@@ -1,0 +1,24 @@
+.navbar-light {
+    background-color: #F1F1F1;
+}
+
+.addressBook {
+    padding-top: 100px;
+}
+
+.btn {
+    width: 70px;
+}
+
+.phoneNumber-input:invalid {
+    border: red solid 3px;
+}
+
+.phoneNumberError {
+    display: none;
+    color: red;
+}
+
+.address-input-row {
+    height: 90px;
+}
