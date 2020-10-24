@@ -30,7 +30,7 @@ const database = {
       id: 4,
       name: "Habib Kadiri",
       address: "Bellerivestrasse 138, 8008 Zurich",
-      phoneNumber: "+41 78 731 1793"
+      phoneNumber: "+41 78 731 17 93"
     },
   ]
 };
@@ -103,7 +103,7 @@ addresses.fetch()
 
 $(document).ready(function () {
   $('.add-address').on('click', function () {
-    // Triggers error message if Phone Input Field does not pass Regex Test
+    // Triggers error message if Phone Input Field does not pass Regex Pattern
     if ($('.phoneNumber-input').is(':invalid')) {
       // Toggles Error Display to visible
       $('.phoneNumberError').css('display', 'inline');

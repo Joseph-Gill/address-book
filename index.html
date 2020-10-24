@@ -26,11 +26,11 @@
   </div>
   <table class="table">
     <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone Number</th>
-      <th>Actions</th>
+    <tr class="addressLabelRow">
+      <th class="addressLabel">Name</th>
+      <th class="addressLabel">Address</th>
+      <th class="addressLabel">Phone Number</th>
+      <th class="addressLabel">Actions</th>
     </tr>
     <tr class="address-input-row">
       <td>
@@ -46,7 +46,7 @@
         <div class="phoneNumberError">Invalid Swiss Phone Number</div>
       </td>
       <td>
-        <button class="btn btn-primary add-address">Add</button>
+        <button class="btn btn-info add-address">Add</button>
       </td>
     </tr>
     </thead>
@@ -58,7 +58,7 @@
   <td><span class="address"></span><%= address %></td>
   <td><span class="phoneNumber"></span><%= phoneNumber %></td>
   <td>
-    <button class="btn btn-danger delete-address">Delete</button>
+    <button class="btn btn-dark delete-address">Delete</button>
   </td>
 </script>
 <script src="node_modules/jquery/dist/jquery.js"></script>

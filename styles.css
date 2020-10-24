@@ -22,3 +22,16 @@
 .address-input-row {
     height: 90px;
 }
+
+.addButton {
+    background-color: #CE4929;
+    color: #F1F1F1;
+}
+
+.addressLabelRow {
+    background-color: #EF8529;
+}
+
+.addressLabel {
+    color: #F1F1F1;
+}
