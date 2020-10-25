@@ -37,7 +37,7 @@ const database = {
 
 server = sinon.fakeServer.create();
 server.autoRespond = true;
-server.respondWith('Get', '/api/addresses',
+server.respondWith('GET', '/api/addresses',
   [200, {'Content-Type': 'application/json'}, JSON.stringify(database.addresses)]
 );
 
@@ -83,8 +83,18 @@ const AddressesView = Backbone.View.extend({
   model: addresses,
   el: $('.addresses-list'),
   initialize: function () {
-    this.model.on('add', this.render, this);
-    this.model.on('remove', this.render, this);
+    this.model.on('add', this.onAddressAdd, this);
+    this.model.on('remove', this.onAddressRemove, this);
+  },
+  onAddressAdd: function () {
+    if (addresses.length >= 10) {
+      $('.address-input-row').hide();
+    }
+    this.render();
+  },
+  onAddressRemove: function () {
+    $('.address-input-row').show();
+    this.render();
   },
   render: function () {
     let self = this;
@@ -92,7 +102,6 @@ const AddressesView = Backbone.View.extend({
     _.each(this.model.toArray(), function (address) {
       self.$el.append((new AddressView({model: address})).render().$el);
     })
-    return this;
   }
 });
 
@@ -122,12 +131,6 @@ $(document).ready(function () {
       $('.phoneNumber-input').val('');
       // Adds New Address to current Collection
       addresses.add(address)
-      // Checks number of Addresses and disables the field if at 10 or more
-      if (addresses.length >= 10) {
-        $('.address-input-row').hide();
-      } else {
-        $('.address-input-row').show();
-      }
     }
   });
 })
