@@ -62,18 +62,15 @@ const addresses = new Addresses();
 const AddressView = Backbone.View.extend({
   model: new Address(),
   tagName: 'tr',
-  initialize: function () {
-    this.template = _.template($('.addresses-list-template').html());
-  },
   events: {
     'click .delete-address': 'delete'
   },
   delete: function () {
     this.model.destroy();
-    $('.address-input-row').show();
   },
   render: function () {
-    this.$el.html(this.template(this.model.toJSON()));
+    const template = _.template($('.addresses-list-template').html());
+    this.$el.html(template(this.model.toJSON()));
     return this;
   }
 })
@@ -97,11 +94,11 @@ const AddressesView = Backbone.View.extend({
     this.render();
   },
   render: function () {
-    let self = this;
     this.$el.html('');
-    _.each(this.model.toArray(), function (address) {
-      self.$el.append((new AddressView({model: address})).render().$el);
-    })
+    this.model.each(function (address) {
+      this.$el.append((new AddressView({model: address})).render().$el);
+    }, this)
+    return this;
   }
 });
 
